@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Plugin-Name: omegat-textra-plugin
+Plugin-Author: Hiroshi Miura
+OmegaT-Plugins: tokyo.northside.omegat.textra.OmegatTextraMachineTransla
+ tion
+Plugin-Description: NICT TexTra Machine Translation API plugin for Omega
+ T
+Plugin-Version: 2020.2.2.175
+Plugin-Link: https://github.com/miurahr/omegat-textra-plugin
+Plugin-Category: machinetranslator
+Created-By: 11.0.10 (Ubuntu)
+Plugin-Date: 2021-03-10T00:40:55+0900
+
