@@ -1,0 +1,24 @@
+Artifact-Id: omegat-plugin-epwing
+Manifest-Version: 1.0
+Plugin-Name: omegat-plugin-epwing
+Plugin-Date: 2021-03-17T18:46:22+0900
+Created-By: 1.8.0_282 (Amazon.com Inc.)
+Plugin-Description: EPWING dictionary lookup plugin for OmegaT
+OmegaT-Plugins: tokyo.northside.omegat.epwing.OmegatEpwingDictionary
+Plugin-Category: dictionary
+Plugin-Author: Hiroshi Miura
+Plugin-Version: 2.1.1-4-64c3d73081-SNAPSHOT
+Plugin-Link: https://github.com/miurahr/omegat-plugin-epwing
+
+Artifact-Id: omegat-textra-plugin
+Manifest-Version: 1.0
+Plugin-Name: omegat-textra-plugin
+Plugin-Author: Hiroshi Miura
+OmegaT-Plugins: tokyo.northside.omegat.textra.OmegatTextraMachineTranslation
+Plugin-Description: NICT TexTra Machine Translation API plugin for OmegaT
+Plugin-Version: 2020.2.2.175
+Plugin-Link: https://github.com/miurahr/omegat-textra-plugin
+Plugin-Category: machinetranslator
+Created-By: 11.0.10 (Ubuntu)
+Plugin-Date: 2021-03-10T00:40:55+0900
+
