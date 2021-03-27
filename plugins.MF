@@ -22,3 +22,15 @@ Plugin-Category: machinetranslator
 Created-By: 11.0.10 (Ubuntu)
 Plugin-Date: 2021-03-10T00:40:55+0900
 
+Manifest-Version: 1.0
+Plugin-Description: Grammalecte is an open-source grammatical checker
+ for French. This plugin enables OmegaT to check the current segment w
+ ith Grammalecte and can provide suggestions. It acts like LanguageToo
+ l but has a different approach which gives better results (in my opin
+ ion).
+OmegaT-Plugins: net.briac.omegat.plugin.GrammalectePlugin
+Plugin-Category: miscellaneous
+Plugin-Author: Briac PilprÃ©
+Plugin-Version: 1.0.0
+Plugin-Link: https://github.com/briacp/omegat-plugin-grammalecte
+Plugin-Name: Grammalecte Plugin
