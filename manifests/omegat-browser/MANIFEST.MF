@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Plugin-Name: OmegaT Browser plugin
+Plugin-Author: Kirill Voronin
+OmegaT-Plugins: com.yoursdearboy.omegat.plugins.browser.BrowserPlugin
+Plugin-Description: A plugin for OmegaT for fast access to websites. Bin
+ dings can be scripted in Groovy with support for hotkeys, menus, other
+ OmegaT functions.
+Plugin-Version: 1.4.0-rc.1
+Plugin-Link: https://github.com/yoursdearboy/omegat-browser
+Plugin-Category: miscellaneous
