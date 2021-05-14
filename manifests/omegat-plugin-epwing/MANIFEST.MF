@@ -1,5 +1,6 @@
 Manifest-Version: 1.0
-Plugin-Description: EPWING dictionary lookup plugin for OmegaT
+Plugin-Name: EPWING dictionary
+Plugin-Description: EPWING dictionary lookup plugin - Support CD-ROM dictionaries.
 OmegaT-Plugins: tokyo.northside.omegat.epwing.OmegatEpwingDictionary
 Plugin-Category: dictionary
 Plugin-Author: Hiroshi Miura
@@ -7,5 +8,5 @@ Plugin-Version: 2.1.1-4-64c3d73081-SNAPSHOT
 Plugin-Link: https://github.com/miurahr/omegat-plugin-epwing
 Created-By: 1.8.0_282 (Amazon.com Inc.)
 Plugin-Date: 2021-03-17T18:46:22+0900
-Plugin-Name: omegat-plugin-epwing
-
+Plugin-Download-Url: https://github.com/miurahr/omegat-plugin-epwing/releases/download/v2.1.1/omegat-plugin-epwing-2.1.1.jar
+Plugin-Sha256Sum: c981af1e4062a39fd915f7661227530de9762443a00a65b66a7cf153706b31af
