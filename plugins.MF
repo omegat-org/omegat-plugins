@@ -7,6 +7,7 @@ Created-By: 1.8.0_282 (Amazon.com Inc.)
 OmegaT-Plugins: tokyo.northside.omegat.epwing.OmegatEpwingDictionary
 Plugin-Category: dictionary
 Plugin-Author: Hiroshi Miura
+Plugin-Id: omegat-plugin-epwing
 Plugin-Version: 2.1.1-4-64c3d73081-SNAPSHOT
 Plugin-Link: https://github.com/miurahr/omegat-plugin-epwing
 Plugin-Download-Url: https://github.com/miurahr/omegat-plugin-epwing/releases/download/v2.1.1/omegat-plugin-epwing-2.1.1.jar
