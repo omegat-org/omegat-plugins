@@ -29,7 +29,7 @@ jobs:
         shell: python
 
       - name: Update Tag
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         run: |
           git tag --force continuous-release ${GITHUB_SHA}
           git push --force --tags
@@ -39,7 +39,7 @@ jobs:
         uses: johnwbyrd/update-release@v1.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          files: ${{runner.workspace}}/build/plugins.MF
+          files: ${{github.workspace}}/build/plugins.MF
           release: Continuous Release
           tag: continuous-release
 
