@@ -21,7 +21,7 @@ jobs:
           for dirName, subdirList, fileList in os.walk("manifests"):
               for fname in fileList:
                   if fname == "MANIFEST.MF":    
-                      inf = open(os.path.join(dirName + fname), "r")
+                      inf = open(os.path.join(dirName, fname), "r")
                       outf.write(inf.read())
                       outf.write("\n")
                       inf.close()
