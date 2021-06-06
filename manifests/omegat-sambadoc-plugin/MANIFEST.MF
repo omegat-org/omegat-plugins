@@ -1,8 +1,0 @@
-Manifest-Version: 1.0
-Plugin-Name: omegat-sambadoc-plugin
-Plugin-Author: Hiroshi Miura
-OmegaT-Plugins: org.samba.doc.lib.omegat.SambaDocFilter
-Plugin-Description: Filter for samba documentation
-Plugin-Link: https://github.com/miurahr/omegat-sambadoc-plugin
-Plugin-Category: filter
-Plugin-Version: 0.1
