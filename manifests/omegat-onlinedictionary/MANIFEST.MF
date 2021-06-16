@@ -14,3 +14,4 @@ Plugin-Date: 2021-06-15T01:11:13+0000
 Plugin-Name: Online dictionary
 Plugin-Download-Url: https://github.com/miurahr/omegat-onlinedictionary/releases/download/v0.3.2/omegat-onlinedictionary-0.3.2.jar
 Plugin-Sha256Sum: 8dda498647781794911fe8896021355be15a7e4769972efd34f4bad9d57bfe8d
+Plugin-Jar-Filename: omegat-onlinedictionary-0.3.2.jar
