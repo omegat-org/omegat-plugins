@@ -5,7 +5,7 @@ OmegaT-Plugins: com.yoursdearboy.omegat.plugins.browser.BrowserPlugin
 Plugin-Description: A plugin for OmegaT for fast access to websites. Bin
  dings can be scripted in Groovy with support for hotkeys, menus, other
  OmegaT functions.
-Plugin-Version: 1.4.0-rc.1
+Plugin-Version: 1.3
 Plugin-Link: https://github.com/yoursdearboy/omegat-browser
 Plugin-Category: miscellaneous
 Plugin-Download-Url: https://github.com/yoursdearboy/omegat-browser/releases/download/v1.3/omegat-browser-1.3.jar
