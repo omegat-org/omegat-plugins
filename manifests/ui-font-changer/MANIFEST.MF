@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Plugin-Name: UIFontChanger plugin for OmegaT
+Plugin-Description: UIFontChanger plugin for OmegaT
+Plugin-Version: 0.1.1
+Plugin-Author: Yu-tang
+Pluign-Description: Java の既定フォントを自分の好みのフォントに変更する
+License: GNU Public License version 3 or later
+OmegaT-Plugins:  jp.sourceforge.users.yutang.omegat.plugin.uifontchang
+ er.UIFontChanger
+Plugin-Download-Url: https://osdn.net/frs/chamber_redir.php?m=acc&f=%2Fusers%2F4%2F4763%2FUIFontChanger.0.1.1.jar
+Plugin-Sha256sum: 66f8eeb4eca009d82a2d90453f4db82eee50ddc6fc25df2ba9c4b01ff1e1e7b1
+Plugin-Jar-Filename:  UIFontChanger.0.1.1.jar
