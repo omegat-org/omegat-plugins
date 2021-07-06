@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+OmegaT-Plugins: eu.portavita.projectupdater.Plugin
+Plugin-Category: miscellaneous
+Plugin-Description: this file is for debugging the plugin in OmegaT.
+ We need it else OmegaT does not find the plugin.
+ On jar file creation, the maven jar plugin will create a manifest file.
+Plugin-Version: 1.1.0
+Plugin-Link: https://gitlab.com/portavita/l10n/omegat-projectupdater
+Plugin-Author: Martin Fleurke
+Plugin-Download-Url: https://gitlab.com/portavita/l10n/omegat-projectupdater/-/raw/master/dist/omegat-projectupdater-1.1.1.jar
+Plugin-Sha256Sum: 2223020afc8b10fa7d22b27df950915f07d3e2da2167e8212e895b576f78b43a
+Plugin-Jar-Filename: omegat-projectupdater-1.1.1.jar
