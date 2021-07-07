@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Plugin-Name: Apertium
+OmegaT-Plugins: org.omegat.plugin.machinetranslators.ApertiumTranslate
+Plugin-Author: Apertium Project
+Plugin-Category: machinetranslator
+Plugin-Description: Apertium-OmegaT is a plug-in for OmegaT built on top of lttoolbox-java that offers offline machine translation from Apertium.
+Plugin-Version: 1.0
+Plugin-Link: https://github.com/apertium/apertium-omegat
+Plugin-Download-Url: https://github.com/apertium/apertium-omegat/releases/download/v1.0/apertium-omegat.jar
+Plugin-Sha256sum: 72e00f7903a8cd7a81f7b741407cffd9f49b55c2a03bfb185107f68f4c1065b9
+Plugin-Jar-Filename: apertium-omegat-1.0.jar
