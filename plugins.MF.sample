@@ -1,14 +1,11 @@
-Artifact-Id: omegat-plugin-epwing
 Manifest-Version: 1.0
 Plugin-Name: EPWING dictionary
 Plugin-Description: EPWING dictionary lookup plugin - Support CD-ROM dictionaries.
 Plugin-Date: 2021-03-17T18:46:22+0900
-Created-By: 1.8.0_282 (Amazon.com Inc.)
 OmegaT-Plugins: tokyo.northside.omegat.epwing.OmegatEpwingDictionary
 Plugin-Category: dictionary
 Plugin-Author: Hiroshi Miura
-Plugin-Id: omegat-plugin-epwing
-Plugin-Version: 2.1.1-4-64c3d73081-SNAPSHOT
+Plugin-Version: 2.1.1
 Plugin-Link: https://github.com/miurahr/omegat-plugin-epwing
 Plugin-Download-Url: https://github.com/miurahr/omegat-plugin-epwing/releases/download/v2.1.1/omegat-plugin-epwing-2.1.1.jar
 Plugin-Jar-Filename: omegat-plugin-epwing-2.1.1.jar
@@ -19,11 +16,9 @@ Plugin-Name: omegat-textra-plugin
 Plugin-Author: Hiroshi Miura
 OmegaT-Plugins: tokyo.northside.omegat.textra.OmegatTextraMachineTranslation
 Plugin-Description: NICT TexTra(r) Machine Translation API plugin for OmegaT
-Plugin-Id: omegat-textra-plugin
-Plugin-Version: 2020.2.2.175
+Plugin-Version: 2020.2.2
 Plugin-Link: https://github.com/miurahr/omegat-textra-plugin
 Plugin-Category: machinetranslator
-Created-By: 11.0.10 (Ubuntu)
 Plugin-Date: 2021-03-10T00:40:55+0900
 Plugin-Download-Url: https://github.com/miurahr/omegat-textra-plugin/releases/download/v2020.2.2/omegat-textra-plugin-2020.2.2.jar
 Plugin-Jar-Filename: omegat-textra-plugin-2020.2.2.jar
