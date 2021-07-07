@@ -1,0 +1,12 @@
+Manifest-Version: 1.0␍␊
+Plugin-Category: filter
+OmegaT-Plugins: org.omegat.filters4.xml.xliff.Xliff1Filter org.omegat.filters4.xml.xliff.Xliff2Filter org.omegat.filters4.xml.xliff.SdlXliff org.omegat.filters4.xml.xliff.SdlProject org.omegat.filters4.xml.openxml.MsOfficeFileFilter
+Plugin-Name: StaX filters
+Plugin-Author: Thomas CORDONNIER
+Plugin-Version: 2.1.1
+License: GPLv3+
+Plugin-Link: http://185.13.37.79:8003/index.php/p/stax-filters/
+Plugin-Description: StaX filters
+Plugin-Download-Url: http://185.13.37.79:8003/index.php/p/stax-filters/downloads/get/Stax-Filters-2.1.1.jar
+Plugin-Sha256sum: eb3ef19f89974875074333f79d48a6bb35d5bc58d9dc152c922fd5f8f025d513
+Plugin-Jar-Filename: Stax-Filters-2.1.1.jar
