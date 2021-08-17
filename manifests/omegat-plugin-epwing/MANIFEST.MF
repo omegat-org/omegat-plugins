@@ -3,11 +3,11 @@ Plugin-Description: EPWING dictionary lookup for OmegaT
 OmegaT-Plugins: tokyo.northside.omegat.epwing.OmegatEpwingDictionary
 Plugin-Category: dictionary
 Plugin-Author: Hiroshi Miura
-Plugin-Version: 2.1.2
+Plugin-Version: 2.2.0
 Plugin-Link: https://github.com/miurahr/omegat-plugin-epwing
 Created-By: 1.8.0_292 (AdoptOpenJDK)
-Plugin-Date: 2021-06-15T07:09:27+0000
+Plugin-Date: 2021-08-17T03:44:52+0000
 Plugin-Name: EPWING
-Plugin-Download-Url: https://github.com/miurahr/omegat-plugin-epwing/releases/download/v2.1.2/omegat-plugin-epwing-2.1.2.jar
-Plugin-Sha256Sum: 26e6212bcd2219281730328af35dec9914215d284124a3073faf285bce092367
-Plugin-Jar-Filename: omegat-plugin-epwing-2.1.2.jar
+Plugin-Download-Url: https://github.com/miurahr/omegat-plugin-epwing/releases/download/v2.2.0/omegat-plugin-epwing-2.2.0.jar
+Plugin-Sha256Sum: 48fa74527c68cdcac460aecd7ef8aa8a1c570cda3246e7115e7fc5239e117788 
+Plugin-Jar-Filename: omegat-plugin-epwing-2.2.0.jar
