@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Plugin-Description: MDict support plugin
+OmegaT-Plugins: tokyo.northside.omegat.mdict.MDict
+Plugin-Category: dictionary
+Plugin-Author: Hiroshi Miura
+Plugin-Version: 0.1.4
+Plugin-Link: https://github.com/miurahr/omegat-mdict
+Created-By: 1.8.0_312 (Temurin)
+Plugin-Date: 2022-02-09T04:41:54+0000
+Plugin-Name: MDict
+Plugin-Download-Url: https://github.com/miurahr/omegat-mdict/releases/download/v0.1.4/omegat-mdict-0.1.4.jar
+Plugin-Jar-Filename: omegat-mdict-0.1.4.jar
+Plugin-Sha256Sum: 886fb9f76f183d12912add8ed8f787e61ce9c3b28e6e55b3c633624042cb489a
+
