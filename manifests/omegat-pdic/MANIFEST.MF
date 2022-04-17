@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Plugin-Description: PDIC dictionary support for OmegaT
+OmegaT-Plugins: tokyo.northside.omegat.PDic
+Plugin-Category: dictionary
+Plugin-Author: Hiroshi Miura
+Plugin-Version: 0.2.1
+Plugin-Link: https://github.com/miurahr/omegat-pdic
+Created-By: 1.8.0_312 (Temurin)
+Plugin-Date: 2022-01-10T07:02:41+0000
+Plugin-Name: PDIC
+Plugin-Download-Url: https://github.com/miurahr/omegat-pdic/releases/download/v0.2.1/omegat-pdic-0.2.1.jar
+Plugin-Jar-Filename: omegat-pdic-0.2.1.jar
+Plugin-Sha256sum: 03fbd111ccc12e35ecdf42767e3e5b2cb36a27e8ae8ef2c29800582a1b9e50f2
+
