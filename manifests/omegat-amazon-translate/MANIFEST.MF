@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Plugin-Link: https://sourceforge.net/projects/omegat-amazon-translate/files/
+Plugin-Author: Vladimir V. Bychkov
+Plugin-Description: omegat-amazon-translate
+Plugin-Name: omegat-amazon-translate
+Plugin-Version: 1.1.0
+Plugin-Download-Url: https://sourceforge.net/projects/omegat-amazon-translate/files/amazon-translate-1.1.0.jar/download
+Plugin-Sha256Sum: 0c76ba74aad049fd20f0f0d692397e70512b350d217dff5260c097ad73887e83
+Plugin-Jar-Filename: amazon-translate-1.1.0.jar
+OmegaT-Plugins: org.omegat.plugins.machinetranslators.AmazonTranslate
