@@ -12,12 +12,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          depth: 10
+          fetch-depth: 2
+          lfs: true
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+          ref: main
       - name: Get changed files
         id: changed-files
         run: |
           changedFiles=$(git diff --name-only main...)
-          for target in $(changedFiles); do
+          for target in $changedFiles ; do
               if [[ "$target" == *.jar.asc && "$target" != *-sources.jar.asc && "$target" != *-javadoc.jar.asc ]]; then
                   signaturefile=$target
               fi
