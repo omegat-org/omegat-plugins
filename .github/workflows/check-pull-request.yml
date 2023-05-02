@@ -16,7 +16,7 @@ jobs:
       - name: Get changed files
         id: changed-files
         run: |
-          changedFiles=$(git diff --name-only HEAD^)
+          changedFiles=$(git diff --name-only main...)
           for target in $(changedFiles); do
               if [[ "$target" == *.jar.asc && "$target" != *-sources.jar.asc && "$target" != *-javadoc.jar.asc ]]; then
                   signaturefile=$target
