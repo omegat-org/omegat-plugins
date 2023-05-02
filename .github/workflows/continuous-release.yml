@@ -1,18 +1,19 @@
 name: Continuous Release
 
 on:
-#  push:
-#    branches: [ main ]
+  push:
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
   build:
-    name: Generate MANIFEST
+    name: Generate plugins database
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 1
+          lfs: true
       - name: Create Plugin Database
         run: kotlin ci/create-plugin-database.main.kts
 
