@@ -15,7 +15,7 @@ import java.util.jar.JarFile
 import kotlin.io.path.createDirectories
 import kotlin.io.path.inputStream
 
-val baseUrl = "https://raw.githubusercontent.com/omegat-org/omegat-plugins/main/plugins/"
+val baseUrl = "https://github.com/omegat-org/omegat-plugins/raw/continuous-release/plugins/"
 val terms = mapOf("Plugin-Name" to "Name", "Bundle-Name" to "Name", "Implementation-Title" to "Name",
         "Plugin-Version" to "Version", "Bundle-Version" to "Version", "Implementation-Version" to "Version",
         "Plugin-Author" to "Author", "Implementation-Vendor" to "Author", "Built-By" to "Author",
