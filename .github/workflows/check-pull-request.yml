@@ -31,4 +31,6 @@ jobs:
       - name: check manifest
         run: kotlin ci/check-manifest.main.kts ${{ steps.changed-jar-files.outputs.added_files }}
       - name: check signature
-        run: gpgv --keyring "keyring/${GITHUB_ACTOR}.gpg" ${{ steps.changed-sign-files.outputs.added_files }}
+        run: |
+          echo "verify signature using keyring/${GITHUB_ACTOR}.gpg"
+          gpgv --keyring "keyring/${GITHUB_ACTOR}.gpg" ${{ steps.changed-sign-files.outputs.added_files }}
