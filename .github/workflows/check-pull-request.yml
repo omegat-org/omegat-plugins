@@ -14,30 +14,21 @@ jobs:
         with:
           fetch-depth: 2
           lfs: true
-      - uses: actions/checkout@v3
+      - name: get changed jar files
+        id: changed-jar-files
+        uses: tj-actions/changed-files@v35
         with:
-          fetch-depth: 2
-          ref: main
-      - name: Get changed files
-        id: changed-files
-        run: |
-          changedFiles=$(git diff --name-only main...)
-          for target in $changedFiles ; do
-              if [[ "$target" == *.jar.asc && "$target" != *-sources.jar.asc && "$target" != *-javadoc.jar.asc ]]; then
-                  signaturefile=$target
-              fi
-              if [[ "$target" == *.jar && "$target" != *-sources.jar && "$target" != *-javadoc.jar ]]; then
-                  jarfile=$target
-              fi
-          done
-          if [[ "$signaturefile" == "" || "$jarfile" == "" ]]; then
-              exit 1
-          fi
-          echo "signature_file=$signaturefile" >> $GITHUB_OUTPUT
-          echo "jar_file=$jarfile" >> $GITHUB_OUTPUT
+          files: |
+            plugins/*.jar
+      - name: get changed files
+        id: changed-sign-files
+        uses: tj-actions/changed-files@v35
+        with:
+          files: |
+            plugins/*.jar.asc
       - run: |
           sudo apt install -y gpgv
       - name: check manifest
-        run: kotlin ci/check-manifest.main.kts ${{ steps.changed-files.outputs.jar_file }}
+        run: kotlin ci/check-manifest.main.kts ${{ steps.changed-jar-files.outputs.added_files }}
       - name: check signature
-        run: gpgv --keyring "keyring/${GITHUB_ACTOR}.gpg" ${{ steps.changed-files.outputs.signature_file }}
+        run: gpgv --keyring "keyring/${GITHUB_ACTOR}.gpg" ${{ steps.changed-sign-files.outputs.added_files }}
