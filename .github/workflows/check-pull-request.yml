@@ -27,10 +27,10 @@ jobs:
           files: |
             plugins/*.jar.asc
       - run: |
-          sudo apt install -y gpgv
+          sudo apt install -y gpg
       - name: check manifest
         run: kotlin ci/check-manifest.main.kts ${{ steps.changed-jar-files.outputs.added_files }}
       - name: check signature
         run: |
           echo "verify signature using keyring/${GITHUB_ACTOR}.gpg"
-          gpgv --keyring "keyring/${GITHUB_ACTOR}.gpg" ${{ steps.changed-sign-files.outputs.added_files }}
+          gpg --verify --keyring "keyring/${GITHUB_ACTOR}.gpg" ${{ steps.changed-sign-files.outputs.added_files }}
