@@ -1,0 +1,38 @@
+name: Check request of plugin jar addition
+
+on:
+  pull_request:
+    paths:
+      - plugins/**
+
+jobs:
+  check:
+    name: check manifest and signature
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          depth: 2
+      - name: Get changed files
+        id: changed-files
+        run: |
+          changedFiles=$(git diff --name-only HEAD^)
+          for target in $(changedFiles); do
+              if [[ "$target" == *.jar.asc && "$target" != *-sources.jar.asc && "$target" != *-javadoc.jar.asc ]]; then
+                  signaturefile=$target
+              fi
+              if [[ "$target" == *.jar && "$target" != *-sources.jar && "$target" != *-javadoc.jar ]]; then
+                  jarfile=$target
+              fi
+          done
+          if [[ "$signaturefile" == "" || "$jarfile" == "" ]]; then
+              exit 1
+          fi
+          echo "signature_file=$signaturefile" >> $GITHUB_OUTPUT
+          echo "jar_file=$jarfile" >> $GITHUB_OUTPUT
+      - run: |
+          sudo apt install -y gpgv
+      - name: check manifest
+        run: kotlin ci/check-manifest.main.kts ${{ steps.changed-files.outputs.jar_file }}
+      - name: check signature
+        run: gpgv --keyring "keyring/${GITHUB_ACTOR}.gpg" ${{ steps.changed-files.outputs.signature_file }}

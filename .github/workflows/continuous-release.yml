@@ -1,8 +1,8 @@
 name: Continuous Release
 
 on:
-  push:
-    branches: [ main ]
+#  push:
+#    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -13,20 +13,8 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 1
-
-      - run: |
-          import os
-          os.makedirs("build", exist_ok=True)
-          outf = open("build/plugins.MF", "w")
-          for dirName, subdirList, fileList in os.walk("manifests"):
-              for fname in fileList:
-                  if fname == "MANIFEST.MF":    
-                      inf = open(os.path.join(dirName, fname), "r")
-                      outf.write(inf.read())
-                      outf.write("\n")
-                      inf.close()
-          outf.close()
-        shell: python
+      - name: Create Plugin Database
+        run: kotlin ci/create-plugin-database.main.kts
 
       - name: Update Tag
         if: github.ref == 'refs/heads/main'
@@ -39,7 +27,7 @@ jobs:
         uses: johnwbyrd/update-release@v1.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          files: ${{github.workspace}}/build/plugins.MF
+          files: ${{github.workspace}}/build/plugins.json
           release: Continuous Release
           tag: continuous-release
 
