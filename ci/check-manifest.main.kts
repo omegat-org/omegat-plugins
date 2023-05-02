@@ -12,11 +12,12 @@ val checkList = mutableMapOf("Name" to false, "Version" to false, "Author" to fa
 
 var targetJarFile = args.toList().first()
 val input = JarFile(targetJarFile)
-for (entry in input.manifest.entries) {
-    terms.get(entry.key)?.let { checkList.put(it, true) }
+val mainAttr = input.manifest.mainAttributes
+for (entry in mainAttr) {
+    terms.get(entry.key.toString())?.let { checkList.put(it, true) }
 }
 val result = checkList.entries.filterNot({it.value}).map({it.key}).firstOrNull()
 if (result != null) {
-    System.err.println(String.format("{} is missing in MANIFEST.MF", result))
+    System.err.println(String.format("%s is missing in MANIFEST.MF", result))
     System.exit(1)
 }

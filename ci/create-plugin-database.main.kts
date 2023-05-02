@@ -12,6 +12,7 @@ import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.jar.JarFile
+import kotlin.io.path.createDirectories
 import kotlin.io.path.inputStream
 
 val baseUrl = "https://raw.githubusercontent.com/omegat-org/omegat-plugins/main/plugins/"
@@ -29,7 +30,7 @@ val plugins = mutableListOf<Map<String, String>>()
 fun process(pluginFile: Path) {
     val plugin = mutableMapOf<String, String>()
     JarFile(pluginFile.toFile()).manifest.mainAttributes.forEach {
-        attr -> terms.get(attr.key)?.let {
+        attr -> terms.get(attr.key.toString())?.let {
             plugin.put(it, attr.value.toString())
         }
     }
@@ -40,9 +41,10 @@ fun process(pluginFile: Path) {
 }
 
 val dir = "plugins"
+Paths.get(targetFile).parent.createDirectories()
 Files.walk(Paths.get(dir))
         .filter {Files.isRegularFile(it)}
-        .filter {it.fileName.endsWith(".jar") && !it.fileName.endsWith("-sources.jar")}
+        .filter {it.fileName.toString().endsWith(".jar")}
         .forEach {process(it)}
 File(targetFile).writeText(Json.encodeToString(plugins))
 
