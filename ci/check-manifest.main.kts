@@ -8,11 +8,12 @@ val terms = mapOf("Plugin-Name" to "Name", "Bundle-Name" to "Name", "Implementat
         "Plugin-Version" to "Version", "Bundle-Version" to "Version", "Implementation-Version" to "Version",
         "Plugin-Author" to "Author", "Implementation-Vendor" to "Author", "Built-By" to "Author",
         "Plugin-Category" to "Category",
-        "Plugin-Description" to "Description", "Plugin-Link" to "Link",
+        "Plugin-Description" to "Description", "Plugin-Link" to "Link", "OmegaT-Plugins" to "Class-Name",
 )
 
 // These are mandatory attributes
-val checkList = mutableMapOf("Name" to false, "Version" to false, "Author" to false, "Category" to false)
+val checkList = mutableMapOf("Name" to false, "Version" to false, "Author" to false, "Category" to false,
+        "Class-Name" to false)
 
 // Accept only one argument as jar file
 if (args.size != 1) {

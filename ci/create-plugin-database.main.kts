@@ -27,7 +27,9 @@ val terms = mapOf("Plugin-Name" to "Name", "Bundle-Name" to "Name", "Implementat
         "Plugin-Author" to "Author", "Implementation-Vendor" to "Author", "Built-By" to "Author",
         "Plugin-Date" to "Date",
         "Plugin-Description" to "Description", "Plugin-Link" to "Link", "Plugin-Category" to "Category",
-        "Plugin-License" to "License")
+        "Plugin-License" to "License",
+        "OmegaT-Plugins" to "Class-Name",
+        )
 val targetFile = "build/dist/plugins.json"
 val sourceDir = Paths.get("plugins").toAbsolutePath()
 
@@ -44,7 +46,13 @@ fun process(pluginFile: Path) {
             "Plugin-Sha256Sum" to DigestUtils(MessageDigestAlgorithms.SHA_256).digestAsHex(pluginFile.inputStream()),
     )
     val jarAttributes = JarFile(pluginFile.toFile()).manifest.mainAttributes
-    jarAttributes.forEach { attr -> terms.get(attr.key.toString())?.let { attributes.put(it, attr.value.toString()) } }
+    jarAttributes.forEach { attr -> terms.get(attr.key.toString())?.let {
+        if (it.equals("Class-Name")) {
+            attributes.put(it, attr.value.toString().split(" ")[0])
+        } else {
+            attributes.put(it, attr.value.toString())
+        }
+    }}
     plugins.add(attributes)
 }
 
