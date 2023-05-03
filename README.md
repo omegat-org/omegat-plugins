@@ -19,8 +19,6 @@ Following attributes are mandatory to publish your plugin in OmegaT repository.
 - "Name"
 - "Version" 
 - "Author"
-- "Description"
-- "Link"
 - "Category"
 
 ### make pull-request to push plugin jar file
