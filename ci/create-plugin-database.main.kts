@@ -2,8 +2,13 @@
 @file:CompilerOptions("-jvm-target", "11")
 @file:DependsOn("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0", "commons-codec:commons-codec:1.15")
 
+import kotlinx.serialization.KSerializer
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
+import kotlinx.serialization.descriptors.SerialDescriptor
 import kotlinx.serialization.encodeToString
+import kotlinx.serialization.encoding.Decoder
+import kotlinx.serialization.encoding.Encoder
 import kotlinx.serialization.json.Json
 import org.apache.commons.codec.digest.DigestUtils
 import org.apache.commons.codec.digest.MessageDigestAlgorithms
@@ -11,6 +16,7 @@ import java.io.File
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
+import java.util.*
 import java.util.jar.JarFile
 import kotlin.io.path.createDirectories
 import kotlin.io.path.inputStream
@@ -23,28 +29,31 @@ val terms = mapOf("Plugin-Name" to "Name", "Bundle-Name" to "Name", "Implementat
         "Plugin-Description" to "Description", "Plugin-Link" to "Link", "Plugin-Category" to "Category",
         "Plugin-License" to "License")
 val targetFile = "build/dist/plugins.json"
+val sourceDir = Paths.get("plugins").toAbsolutePath()
 
 @Serializable
 val plugins = mutableListOf<Map<String, String>>()
 
 fun process(pluginFile: Path) {
-    val plugin = mutableMapOf<String, String>()
-    JarFile(pluginFile.toFile()).manifest.mainAttributes.forEach {
-        attr -> terms.get(attr.key.toString())?.let {
-            plugin.put(it, attr.value.toString())
-        }
-    }
-    plugin.put("Plugin-Jar-Filename", pluginFile.fileName.toString())
-    plugin.put("Plugin-Download-Url", baseUrl + pluginFile.fileName.toString())
-    plugin.put("Plugin-Sha256Sum", DigestUtils(MessageDigestAlgorithms.SHA_256).digestAsHex(pluginFile.inputStream()))
-    plugins.add(plugin)
+    val parentDir: Path = pluginFile.toAbsolutePath().getParent()
+    val id = parentDir.toFile().relativeToOrSelf(sourceDir.toFile()).toString().replace('/', '.')
+    val attributes = mutableMapOf(
+            "ID" to id,
+            "Plugin-Jar-Filename" to pluginFile.fileName.toString(),
+            "Plugin-Download-Url" to baseUrl + pluginFile.fileName.toString(),
+            "Plugin-Sha256Sum" to DigestUtils(MessageDigestAlgorithms.SHA_256).digestAsHex(pluginFile.inputStream()),
+    )
+    val jarAttributes = JarFile(pluginFile.toFile()).manifest.mainAttributes
+    jarAttributes.forEach { attr -> terms.get(attr.key.toString())?.let { attributes.put(it, attr.value.toString()) } }
+    plugins.add(attributes)
 }
 
+val format = Json { prettyPrint = true }
 val dir = "plugins"
 Paths.get(targetFile).parent.createDirectories()
 Files.walk(Paths.get(dir))
         .filter {Files.isRegularFile(it)}
         .filter {it.fileName.toString().endsWith(".jar")}
         .forEach {process(it)}
-File(targetFile).writeText(Json.encodeToString(plugins))
+File(targetFile).writeText(format.encodeToString(plugins))
 
