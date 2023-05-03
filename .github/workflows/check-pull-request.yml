@@ -19,13 +19,13 @@ jobs:
         uses: tj-actions/changed-files@v35
         with:
           files: |
-            plugins/*.jar
+            plugins/**/*.jar
       - name: get changed files
         id: changed-sign-files
         uses: tj-actions/changed-files@v35
         with:
           files: |
-            plugins/*.jar.asc
+            plugins/**/*.jar.asc
       - run: |
           echo "Added jar file: ${{ steps.changed-jar-files.outputs.added_files }}"
           echo "Added signature file: ${{ steps.changed-sign-files.outputs.added_files }}"
