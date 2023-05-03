@@ -21,7 +21,7 @@ import java.util.jar.JarFile
 import kotlin.io.path.createDirectories
 import kotlin.io.path.inputStream
 
-val baseUrl = "https://github.com/omegat-org/omegat-plugins/raw/continuous-release/plugins/"
+val baseUrl = "https://media.githubusercontent.com/media/omegat-org/omegat-plugins/main/"
 val terms = mapOf("Plugin-Name" to "Name", "Bundle-Name" to "Name", "Implementation-Title" to "Name",
         "Plugin-Version" to "Version", "Bundle-Version" to "Version", "Implementation-Version" to "Version",
         "Plugin-Author" to "Author", "Implementation-Vendor" to "Author", "Built-By" to "Author",
@@ -42,7 +42,7 @@ fun process(pluginFile: Path) {
     val attributes = mutableMapOf(
             "ID" to id,
             "Plugin-Jar-Filename" to pluginFile.fileName.toString(),
-            "Plugin-Download-Url" to baseUrl + pluginFile.fileName.toString(),
+            "Plugin-Download-Url" to baseUrl + pluginFile.toString(),
             "Plugin-Sha256Sum" to DigestUtils(MessageDigestAlgorithms.SHA_256).digestAsHex(pluginFile.inputStream()),
     )
     val jarAttributes = JarFile(pluginFile.toFile()).manifest.mainAttributes
