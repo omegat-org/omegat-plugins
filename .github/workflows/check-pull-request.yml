@@ -27,6 +27,9 @@ jobs:
           files: |
             plugins/*.jar.asc
       - run: |
+          echo "Added jar file: ${{ steps.changed-jar-files.outputs.added_files }}"
+          echo "Added signature file: ${{ steps.changed-sign-files.outputs.added_files }}"
+      - run: |
           sudo apt install -y gpg
       - name: check manifest
         run: kotlin ci/check-manifest.main.kts ${{ steps.changed-jar-files.outputs.added_files }}
