@@ -20,5 +20,5 @@ jobs:
           files: |
             keyring/*
       - run: |
-        sudo apt install -y gpg
-        gpg --dry-run --import --import-options import-show ${{ steps.changed-files.outputs.added_files }}
+          sudo apt install -y gpg
+          gpg --dry-run --import --import-options import-show ${{ steps.changed-files.outputs.added_files }}
