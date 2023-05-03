@@ -17,18 +17,14 @@ jobs:
       - name: Create Plugin Database
         run: kotlin ci/create-plugin-database.main.kts
 
-      - name: Update Tag
+      - name: 📂 SFTP upload to omegat.org
+        uses: wangyucode/sftp-upload-action@v2.0.2
         if: github.ref == 'refs/heads/main'
-        run: |
-          git tag --force continuous-release ${GITHUB_SHA}
-          git push --force --tags
-
-      - name: Update Continuous Release
-        if: github.ref == 'refs/heads/main'
-        uses: johnwbyrd/update-release@v1.0.0
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          files: ${{github.workspace}}/build/dist/plugins.json
-          release: Continuous Release
-          tag: continuous-release
-
+          username: ${{ secrets.SOURCEFORGE_WEB_USER }}
+          password: ${{ secrets.SOURCEFORGE_WEB_PASS }}
+          host: 'web.sourceforge.net'
+          forceUpload: true
+          local_path: "${{github.workspace}}/build/dist/plugins.json"
+          remote_path: '/home/project-web/omegat/htdocs/plugins'
+          sftpArgs: '-o ConnectTimeout=5'
