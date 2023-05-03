@@ -1,4 +1,4 @@
-name: Continuous Release
+name: Compile plugins database and upload to SF
 
 on:
   push:
@@ -25,6 +25,5 @@ jobs:
           password: ${{ secrets.SOURCEFORGE_WEB_PASS }}
           host: 'web.sourceforge.net'
           forceUpload: true
-          local_path: "${{github.workspace}}/build/dist/plugins.json"
-          remote_path: '/home/project-web/omegat/htdocs/plugins'
-          sftpArgs: '-o ConnectTimeout=5'
+          localDir: "${{github.workspace}}/build/dist/plugins.json"
+          remoteDir: '/home/project-web/omegat/htdocs/plugins'
