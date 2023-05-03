@@ -19,6 +19,6 @@ jobs:
         with:
           files: |
             keyring/*
-      - run: |
-          sudo apt install -y gpg
-          gpg --dry-run --import --import-options import-show ${{ steps.changed-files.outputs.added_files }}
+      - name: import check when added, changed, copied and modified
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: gpg --dry-run --import --import-options import-show ${{ steps.changed-files.outputs.all_changed_files }}
