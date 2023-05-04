@@ -18,12 +18,14 @@ jobs:
         run: kotlin ci/create-plugin-database.main.kts
 
       - name: 📂 SFTP upload to omegat.org
-        uses: wangyucode/sftp-upload-action@v2.0.2
         if: github.ref == 'refs/heads/main'
-        with:
-          username: ${{ secrets.SOURCEFORGE_WEB_USER }}
-          password: ${{ secrets.SOURCEFORGE_WEB_PASS }}
-          host: 'web.sourceforge.net'
-          forceUpload: true
-          localDir: "${{github.workspace}}/build/dist/plugins.json"
-          remoteDir: '/home/project-web/omegat/htdocs/plugins'
+        run: |
+          sudo apt install -y sshpass
+          echo "put ${LOCAL} ${REMOTE}" > sftp.cmd
+          SSHPASS=${PASSWORD} sshpass -e sftp -oBatchMode=no -b sftp.cmd -oStrictHostKeyChecking=no ${USERNAME}@${SERVER}
+        env:
+          USERNAME: ${{ secrets.SOURCEFORGE_WEB_USER }}
+          PASSWORD: ${{ secrets.SOURCEFORGE_WEB_PASS }}
+          SERVER: 'web.sourceforge.net'
+          LOCAL: "${{github.workspace}}/build/dist/plugins.json"
+          REMOTE: '/home/project-web/omegat/htdocs/plugins/'
