@@ -20,7 +20,6 @@ jobs:
       - name: 📂 SFTP upload to omegat.org
         if: github.ref == 'refs/heads/main'
         run: |
-          sudo apt install -y sshpass
           echo "put ${LOCAL} ${REMOTE}" > sftp.cmd
           SSHPASS=${PASSWORD} sshpass -e sftp -oBatchMode=no -b sftp.cmd -oStrictHostKeyChecking=no ${USERNAME}@${SERVER}
         env:
@@ -28,4 +27,4 @@ jobs:
           PASSWORD: ${{ secrets.SOURCEFORGE_WEB_PASS }}
           SERVER: 'web.sourceforge.net'
           LOCAL: "${{github.workspace}}/build/dist/plugins.json"
-          REMOTE: '/home/project-web/omegat/htdocs/plugins/'
+          REMOTE: '/home/project-web/omegat/htdocs/plugins/plugins.json'
