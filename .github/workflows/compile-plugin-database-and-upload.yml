@@ -27,4 +27,4 @@ jobs:
           PASSWORD: ${{ secrets.SOURCEFORGE_WEB_PASS }}
           SERVER: 'web.sourceforge.net'
           LOCAL: "${{github.workspace}}/build/dist/plugins.json"
-          REMOTE: '/home/project-web/omegat/htdocs/plugins/plugins.json'
+          REMOTE: '/home/project-web/omegat/htdocs/plugins'
