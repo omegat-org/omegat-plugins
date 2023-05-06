@@ -1,0 +1,39 @@
+name: Check request of plugin jar addition
+
+on:
+  pull_request:
+    paths:
+      - plugins/**
+
+jobs:
+  check:
+    name: check manifest and signature
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+          lfs: true
+      - name: get changed jar files
+        id: changed-jar-files
+        uses: tj-actions/changed-files@v35
+        with:
+          files: |
+            plugins/**/*.jar
+      - name: get changed files
+        id: changed-sign-files
+        uses: tj-actions/changed-files@v35
+        with:
+          files: |
+            plugins/**/*.jar.asc
+      - run: |
+          echo "Added jar file: ${{ steps.changed-jar-files.outputs.added_files }}"
+          echo "Added signature file: ${{ steps.changed-sign-files.outputs.added_files }}"
+      - run: |
+          sudo apt install -y gpg
+      - name: check manifest
+        run: kotlin ci/check-manifest.main.kts ${{ steps.changed-jar-files.outputs.added_files }}
+      - name: check signature
+        run: |
+          echo "verify signature using keyring/${GITHUB_ACTOR}.gpg"
+          gpg --verify --keyring "keyring/${GITHUB_ACTOR}.gpg" ${{ steps.changed-sign-files.outputs.added_files }}

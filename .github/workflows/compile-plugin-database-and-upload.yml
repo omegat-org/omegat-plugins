@@ -1,0 +1,30 @@
+name: Compile plugins database and upload to SF
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Generate plugins database
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+          lfs: true
+      - name: Create Plugin Database
+        run: kotlin ci/create-plugin-database.main.kts
+
+      - name: 📂 SFTP upload to omegat.org
+        if: github.ref == 'refs/heads/main'
+        run: |
+          echo "put ${LOCAL} ${REMOTE}" > sftp.cmd
+          SSHPASS=${PASSWORD} sshpass -e sftp -oBatchMode=no -b sftp.cmd -oStrictHostKeyChecking=no ${USERNAME}@${SERVER}
+        env:
+          USERNAME: ${{ secrets.SOURCEFORGE_WEB_USER }}
+          PASSWORD: ${{ secrets.SOURCEFORGE_WEB_PASS }}
+          SERVER: 'web.sourceforge.net'
+          LOCAL: "${{github.workspace}}/build/dist/plugins.json"
+          REMOTE: '/home/project-web/omegat/htdocs/plugins'
