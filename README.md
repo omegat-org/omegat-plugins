@@ -31,10 +31,46 @@ You should add just TWO files.
 - Plugin jar file (file end with .jar)
 - Plugin jar sign file (file end with .jar.asc)
 
+A signature file can be created with Gradle signing plugin, or made manually with command line.
+
+When you have a plugin file named `omegat-some-plugin-1.2.3.jar`, you can run
+
+```commandline
+gpg --armor --detach-sign omegat-some-plugin-1.2.3.jar
+```
+
+When you have `build.gradle.kts` in your plugin project, it may become like
+
+```kotlin
+plugins {
+    java
+    signing
+}
+val signKey = listOf("signingKey", "signing.keyId", "signing.gnupg.keyName").find {project.hasProperty(it)}
+tasks.withType<Sign> {
+    onlyIf { signKey != null }
+}
+signing {
+    when (signKey) {
+        "signingKey" -> {
+            val signingKey: String? by project
+            val signingPassword: String? by project
+            useInMemoryPgpKeys(signingKey, signingPassword)
+        }
+        "signing.keyId" -> {/* do nothing */
+        }
+        "signing.gnupg.keyName" -> {
+            useGpgCmd()
+        }
+    }
+    sign(tasks.jar.get())
+}
+```
+
 ### check workflows
 
 OmegaT set up an automation workflows to check manifest and jar signature.
-An actor who creates Pull-Request should be as same as a signer of a signature.
+An actor who creates a Pull-Request should be as same as a signer of a signature.
 
 After all the checks are passed, your PR will be merged into a main branch.
 
