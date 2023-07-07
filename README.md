@@ -7,10 +7,8 @@ These are published in [GitHub Releases](https://github.com/omegat-org/omegat-pl
 
 ### Prerequisite
 
-The project order plugin authors  to register their GnuPG/OpenPGP public keys to sign.
-A key should have a file name `keyring/<GitHub accout Name>.gpg` such as `keyring/miurahr.gpg`
+The project orders plugin author to register their GnuPG/OpenPGP public keys in GitHub accout.
 
-You can make Pull-Request to add public key, and OmegaT team will check and merge manually.
 
 ### Mandatory manifest attributes
 
