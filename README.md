@@ -1,14 +1,16 @@
 # omegat-plugins
 
-This repository is to distribute omegat plugins.
-These are published in [GitHub Releases](https://github.com/omegat-org/omegat-plugins/releases/tag/continuous-release).
+This repository is to distribute certified omegat plugins.
 
 ## How to publish your plugin
 
 ### Prerequisite
 
-The project orders plugin author to register their GnuPG/OpenPGP public keys in GitHub accout.
+The project orders plugin authors to register their GnuPG/OpenPGP public keys in GitHub accout.
+Please check GitHub documentations.
 
+- [Adding a GPG key to your GitHub account](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account)
+- [Generating a new GPG key](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
 
 ### Mandatory manifest attributes
 
@@ -75,6 +77,5 @@ After all the checks are passed, your PR will be merged into a main branch.
 
 ## Continuous publish of a plugin database
 
-Plugin database is published in [GitHub Releases](https://github.com/omegat-org/omegat-plugins/releases/tag/continuous-release).
-A file is in a JSON format.
+Plugin database is published [OmegaT web page](https://omegat.sourceforge.io/plugins/plugins.json). A file is in a JSON format.
 OmegaT will download the database file and show it on `Preferences->plugin` dialog.
