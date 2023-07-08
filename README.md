@@ -21,6 +21,23 @@ Following attributes are mandatory to publish your plugin in OmegaT repository.
 - "Author"
 - "Category"
 
+#### Categories
+
+To help finding the plugins more easily, here is a list of categories
+
+| Category Value      | Category description |
+|---------------------|----------------------|
+| `appearance`        | Appearance / Theming
+| `dictionary`        | Dictionary
+| `file`              | File management
+| `filter`            | Filter
+| `importexport`      | Project exchange
+| `input`             | Text input
+| `machinetranslator` | Machine translation
+| `team`              | Team projects
+| `tokenizer`         | Tokenizer
+| `visualization`     | Visualization
+
 ### make pull-request to push plugin jar file
 
 Plugin developers who want to add your plugin to repository, please raise a pull-request
