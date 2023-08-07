@@ -32,10 +32,10 @@ jobs:
       - run: |
           sudo apt install -y gpg
       - name: check manifest
-        run: kotlin ci/check-manifest.main.kts ${{ steps.changed-jar-files.outputs.added_files }}
+        run: kotlin ci/check-manifest.main.kts ${{ steps.changed-jar-files.outputs.added_files }} | tee -a $GITHUB_STEP_SUMMARY
       - name: download public key
         run: |
           kotlin ci/import-public-key.main.kts ${GITHUB_ACTOR}
       - name: check signature
         run: |
-          gpg --verify --keyring "/tmp/trusteddb.gpg" ${{ steps.changed-sign-files.outputs.added_files }}
+          gpg --verify --keyring "/tmp/trusteddb.gpg" ${{ steps.changed-sign-files.outputs.added_files }} | tee -a $GITHUB_STEP_SUMMARY
